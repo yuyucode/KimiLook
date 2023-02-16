@@ -1,4 +1,0 @@
-repository "KimiLook@wechat_os_qy02bvon9ccpobj52lyzckj6u@cloud.cn"
-  path "/"
-    br "/main"
-    co "/main"
