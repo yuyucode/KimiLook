@@ -8,9 +8,25 @@
 ## 排序等级处理
 
 1. sorting group 用法
- Sorting Group:  可以让父物体下的所有子物体，整体一起渲染来排序。
+
+Sorting Group:  可以让父物体下的所有子物体，整体一起渲染来排序。
+
 
 2. 设置整个项目按照 Y 轴渲染
+
 edit -> project settings -> Graphics ： 
 可以设置摄像机的配置 Custom Axis  , x | z = 0 ，y =1 这样根据Y轴就有遮挡关系。
 注意：必须是同个Sorting Layer，人物的图片切割锚点在底部
+
+## Tilemap 处理
+
+1. 新版本可以使用翻转功能
+
+通过右键 Tile Palette -> open Tile palette 预设
+添加翻转功能，然后save
+
+2. Scene 网格区域显示当前区域
+
+Scene 网格区域最上方右边有个网格，选择Tilemap之后，当Tile Palette 选择当前的Tilemap， 例如Ground，只会显示Ground
+的区域Tile
+
