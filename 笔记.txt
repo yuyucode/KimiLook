@@ -1,5 +1,21 @@
 # 笔记
 
+## 摄像机处理
+
+1.  常用的摄像机管理  Cinemachine
+
+2.  根据像素本身来处理相机的位置（配合Cinemachine）
+
+Main Camera 对象：在Main Camera 中添加组件 Pixel Perfect Camera，修改属性配置。
+CM Vcam1对象：
+然后Cinemachine库中所创建的CM Vcam1对象，
+在CinemachineVirtualCamera中勾选扩展
+Add Extension 选择 Cinemachine Pixel Perfect，他会根据Pixel Perfect Camera来处理
+最后Lens Ortho Size 改为9
+
+3. 设置摄像机缓冲
+在CM vcam1 对象中， 在CinemachineVirtualCamera组件的Body属性设置参数，看个人喜好
+
 ## 图片处理
 
 1. 添加身体各部分图片并调整渲染层
@@ -37,3 +53,10 @@ Scene 网格区域最上方右边有个网格，选择Tilemap之后，当Tile Pa
 
 5. Rule Tile 可以进行规则绘制，减少绘制量
 
+6. 当瓦片地图出现缝隙，可以使用 Sprite Atlas处理, 可以把所有图片素材打包成一张图片，可以根据不同平台进行压缩优化。
+
+右键Project -> 2D -> Sprite Atlas 新建Sprite Atlas
+把图片素材的文件夹拖到 Objects for packing 
+修改 Filter Mode 为Point 像素， Compression 为None 
+最后进行Pack preview
+注意：图片素材可能会干扰其他图片，可以把Padding 改大点
