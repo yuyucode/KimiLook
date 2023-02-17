@@ -14,12 +14,18 @@ Add Extension 选择 Cinemachine Pixel Perfect，他会根据Pixel Perfect Camer
 最后Lens Ortho Size 改为9
 
 3. 设置摄像机缓冲
+
 在CM vcam1 对象中， 在CinemachineVirtualCamera组件的Body属性设置参数，看个人喜好
 
 ## 图片处理
 
 1. 添加身体各部分图片并调整渲染层
  整体处理图片的配置信息，可以使用预设统一处理。 点击图片，右上角有3个按钮，点击中间按钮 Preset 预设
+
+2. 人物与树（其它）遮挡关系
+可以设置其它对象的Sprite Renderer 下的Sprite Sort Point 改为 Pivot
+选择图片进入Sprite Editor ，右下方的Pivot下拉选中Custom， 修改Custom Pivot 的 X或者Y，让其有遮挡的锚点位置
+
 
 ## 排序等级处理
 
@@ -60,3 +66,14 @@ Scene 网格区域最上方右边有个网格，选择Tilemap之后，当Tile Pa
 修改 Filter Mode 为Point 像素， Compression 为None 
 最后进行Pack preview
 注意：图片素材可能会干扰其他图片，可以把Padding 改大点
+
+7. 瓦片地图碰撞（整体）
+
+给Tilemap 添加 Tilemap Collider 2D组件
+为了让Tilemap整体，添加Composite Collider 2D，（给Rigidbody 2D Type改为Staitc）看游戏需要
+最后Tilemap Collider 2D组件，勾选Used By Composite
+
+8. 对于不规则的碰撞Tilemap处理
+可以回到碰撞体图片，点击Sprite Editor , Sprite Editor 下拉菜单选中 Custom Physics Shape
+选中单独的Tile，点击上方的Generate，然后修改， 修改完成Apply
+关闭Collision的,然后重新打开，就会完成

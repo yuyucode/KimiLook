@@ -6766,10 +6766,14 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 5, y: 10}
+        - {x: 5, y: -10}
+        - {x: 10, y: -10}
+        - {x: 10, y: 10}
       tessellationDetail: 0
       bones: []
       spriteID: 9b55a189b50744898ae2b24cae79bd7c
@@ -6997,10 +7001,14 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 0, y: 10}
+        - {x: 0, y: -10}
+        - {x: 10, y: -10}
+        - {x: 10, y: 10}
       tessellationDetail: 0
       bones: []
       spriteID: 910ef96d82e53431395f9abd7a94c535
@@ -7039,10 +7047,14 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 0, y: 10}
+        - {x: 0, y: 0}
+        - {x: 10, y: 0}
+        - {x: 10, y: 10}
       tessellationDetail: 0
       bones: []
       spriteID: 9c10d4f2767124bacb87068cebd39c39
@@ -7249,7 +7261,7 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -7270,10 +7282,14 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 5, y: 10}
+        - {x: 5, y: 0}
+        - {x: 10, y: 0}
+        - {x: 10, y: 10}
       tessellationDetail: 0
       bones: []
       spriteID: 832028267c23d6b43b211693d07e68f0
@@ -7291,10 +7307,15 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: 10}
+        - {x: -10, y: -10}
+        - {x: 10, y: -10}
+        - {x: 10, y: -1}
+        - {x: -1, y: 10}
       tessellationDetail: 0
       bones: []
       spriteID: 689a23f076a6aec488462130850407b1
@@ -7312,10 +7333,15 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: -10}
+        - {x: -1, y: -10}
+        - {x: -2, y: -9}
+        - {x: -9, y: -2}
+        - {x: -10, y: -1}
       tessellationDetail: 0
       bones: []
       spriteID: 616a7b7218d45714d96a633681170e46
@@ -7333,10 +7359,15 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: 10}
+        - {x: -10, y: -10}
+        - {x: 10, y: -10}
+        - {x: 9, y: -9}
+        - {x: -9, y: 9}
       tessellationDetail: 0
       bones: []
       spriteID: 55fd2bf5679a5bb4f98d4dd372077bdf
@@ -7354,10 +7385,16 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: 9}
+        - {x: -10, y: -10}
+        - {x: 10, y: -10}
+        - {x: 10, y: -1}
+        - {x: 8, y: 0}
+        - {x: -8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 8575fcfb9c0e9bf41bba2cc92a0494e1
@@ -7375,10 +7412,15 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: -10}
+        - {x: 8, y: -10}
+        - {x: 6, y: -9}
+        - {x: -8, y: -2}
+        - {x: -10, y: -1}
       tessellationDetail: 0
       bones: []
       spriteID: 98c17b17b6e136145ae6373edf6074a5
@@ -7398,7 +7440,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BaseMap1@20_224: -535392113
       Collisions@20_6: 492441274
       BaseMap1@20_109: 2027865246
       BaseMap1@water08: -1348803144
@@ -7425,8 +7466,8 @@ TextureImporter:
       BaseMap1@20_35: 2128368169
       BaseMap1@20_121: -663197147
       BaseMap1@20_178: 2012346238
-      BaseMap1@20_106: -1504004976
       BaseMap1@20_132: 838684811
+      BaseMap1@20_106: -1504004976
       BaseMap1@20_252: 877442189
       BaseMap1@20_27: 1502656170
       BaseMap1@20_184: -21485358
@@ -7495,8 +7536,8 @@ TextureImporter:
       BaseMap1@20_126: -919498366
       BaseMap1@20_61: -1106286766
       BaseMap1@20_4: 801215717
-      BaseMap1@20_319: -574285479
       BaseMap1@20_281: -760898985
+      BaseMap1@20_319: -574285479
       BaseMap1@20_260: -1942581387
       BaseMap1@20_24: -570742094
       BaseMap1@20_113: 1133180564
@@ -7734,15 +7775,16 @@ TextureImporter:
       BaseMap1@dig14: -795642369
       BaseMap1@20_309: 834871214
       BaseMap1@20_205: -1626434087
-      BaseMap1@20_48: 1213114642
+      BaseMap1@20_226: 1787685156
       BaseMap1@20_293: 746505101
       BaseMap1@20_302: 1702546492
-      BaseMap1@20_226: 1787685156
+      BaseMap1@20_48: 1213114642
       BaseMap1@20_75: -408015391
+      BaseMap1@20_224: -535392113
       BaseMap1@20_228: -1273590320
       BaseMap1@20_99: 1012417248
-      BaseMap1@20_86: 884027891
       BaseMap1@20_307: -1860593417
+      BaseMap1@20_86: 884027891
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

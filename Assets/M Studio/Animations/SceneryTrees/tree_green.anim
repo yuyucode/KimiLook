@@ -81,6 +81,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: ec7ead9e8179941ed8942f22c6757b85, type: 3}
     - {fileID: 21300000, guid: c71c936a3bab845be9efe3992f353eb1, type: 3}
