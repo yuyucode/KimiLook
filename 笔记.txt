@@ -1,8 +1,12 @@
 # 笔记
 
+## 小工具
+
+1. 组件右上方有圆圈问号，可以点击跳转到手册
+
 ## 摄像机处理
 
-1.  常用的摄像机管理  Cinemachine
+1.  常用的摄像机管理  Cinemachine，在Hierarchy右键创建 CM vcam1 对象
 
 2.  根据像素本身来处理相机的位置（配合Cinemachine）
 
@@ -16,6 +20,19 @@ Add Extension 选择 Cinemachine Pixel Perfect，他会根据Pixel Perfect Camer
 3. 设置摄像机缓冲
 
 在CM vcam1 对象中， 在CinemachineVirtualCamera组件的Body属性设置参数，看个人喜好
+
+4. 设置摄像机边界
+
+在 CM vcam1 对象中， 在CinemachineVirtualCamera组件的Extensions 添加新的组件
+Cinemachine Confiner 用来处理边界。
+创建一个Bounds对象，添加Collider 2D组件，记得勾选is Trigger，防止顶出其他物体，然后再修改边界位置锚点
+把Bounds对象添加到 Cinemachine Confiner 组件。
+
+5. 自动加载处理边界
+
+根据标签名查找相对应的Collider2D的边界组件
+
+GameObject.FindGameObjectWithTag("标签名").GetComponent<Collider 2D>();
 
 ## 图片处理
 
