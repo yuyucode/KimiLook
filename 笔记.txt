@@ -1,6 +1,11 @@
 # 笔记
 
-## 小工具
+## 工具
+
+1. 常用的摄像机管理 ：Cinemachine
+2. 动画任何通过简化的代码。DOTween是一个快速、高效、完全类型安全的面向对象动画引擎。
+
+## 小知识
 
 1. 组件右上方有圆圈问号，可以点击跳转到手册
 
@@ -94,3 +99,14 @@ Scene 网格区域最上方右边有个网格，选择Tilemap之后，当Tile Pa
 可以回到碰撞体图片，点击Sprite Editor , Sprite Editor 下拉菜单选中 Custom Physics Shape
 选中单独的Tile，点击上方的Generate，然后修改， 修改完成Apply
 关闭Collision的,然后重新打开，就会完成
+
+## 对象处理
+
+1. 组件复制
+
+ 当组件配置好之后，可以右上角3点号进行Copy，可以复制到其他对象
+
+
+## 学习形式
+
+1. Player 挂载TriggerEnter， 然后触发，调用其他对象所挂载的函数
