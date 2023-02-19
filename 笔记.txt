@@ -110,3 +110,24 @@ Scene 网格区域最上方右边有个网格，选择Tilemap之后，当Tile Pa
 ## 学习形式
 
 1. Player 挂载TriggerEnter， 然后触发，调用其他对象所挂载的函数
+
+
+## 代码
+
+1. 让unity识别class对象，在Inspector显示的话，记得加上序列号
+[System.Serializable]
+public class ItemDetails（）{}
+
+
+## 文件操作
+
+1.  创建ScriptableObject文件
+
+[CreateAssetMenu(fileName ="ItemDataList_SO", menuName = "Inventory/ItemDataList")]
+
+public class ItemDataList_SO: ScriptableObject
+{
+    public List<ItemDetails> itemDetailsList;
+}
+
+右键Project 可以选中 Inventory，创建ItemDataList

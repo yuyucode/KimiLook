@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class TriggerItemFader : MonoBehaviour
@@ -17,17 +18,20 @@ public class TriggerItemFader : MonoBehaviour
                 item.FadeOut(); // 循环执行半透明函数
             }
         }
+
     }
+
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        ItemFader[] faders = collision.GetComponentsInChildren<ItemFader>();
+        ItemFader[] faders = collision.GetComponentsInChildren<ItemFader>(); // 获取collision下的children（树干和树叶）
 
         if (faders.Length > 0)
         {
             foreach (var item in faders)
             {
-                item.FadeIn();
+                item.FadeIn(); // 恢复原样
             }
         }
     }
