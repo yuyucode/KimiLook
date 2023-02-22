@@ -49,6 +49,7 @@ public class ItemEditor : EditorWindow
         // 拿默认图片数据
         defaultIcon = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/M Studio/Art/Items/Icons/icon_M.png");
 
+
         // 查找模板
         // 1. 查找到VisualElement元素下ListView元素并赋值
         // 根部先查询名为为ItemList的VisualElement元素，在查找下面的
@@ -56,6 +57,9 @@ public class ItemEditor : EditorWindow
 
         // 2. 查找到ScrollView元素并赋值
         itemDetailsSection = root.Q<ScrollView>("ItemDetails");
+
+        // 初始化Type的选择默认类型
+        itemDetailsSection.Q<EnumField>("ItemType").Init(IItemType.Seed);
 
         // 3. 查找icon的物体位置
         iconPreview = itemDetailsSection.Q<VisualElement>("Icon");
@@ -80,7 +84,6 @@ public class ItemEditor : EditorWindow
         if(itemList.Count == 0 ) return;
 
         int itemIndex = itemList.IndexOf(activeItem);
-        Debug.Log(itemIndex);
 
         itemList.Remove(activeItem);
 
@@ -201,7 +204,7 @@ public class ItemEditor : EditorWindow
             itemListView.Rebuild(); // 修改name时，重新刷新ListView
         });
 
-        itemDetailsSection.Q<EnumField>("ItemType").Init(IItemType.Seed);
+        itemDetailsSection.Q<EnumField>("ItemType").value = activeItem.itemType;
         itemDetailsSection.Q<EnumField>("ItemType").RegisterValueChangedCallback(evt =>
         {
             activeItem.itemType = (IItemType)evt.newValue;
