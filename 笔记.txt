@@ -15,7 +15,13 @@
 
 ### UI Toolkit 知识
 
-1. 
+1. 脚本查询UI Toolkit的元素
+在uxml (Visual Tree Asset )所有编辑的UI中，用到的Library元素，都可以通过以下方式进行查找
+
+#Container
+   #Healder（VisualElement）
+
+例如 root.Q<Standard下的元素名字>("Hierarchy下的元素的name") => root.Q<VisualElement>("Header")
 
 ## 小知识
 

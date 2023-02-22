@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDetails
 {
     public int itemID; // 物品的唯一ID
-    public string name; // 物品的名字
+    public string itemName; // 物品的名字
     public IItemType itemType; // 物品类型
     public Sprite itemIcon; // 物品的图片
     public Sprite itemOnWorldSprite; // 世界地图上所显示的图片
