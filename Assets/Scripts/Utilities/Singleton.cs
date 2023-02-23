@@ -24,7 +24,7 @@ public class Singleton<T> : MonoBehaviour where T: Singleton<T>
     {
         if(instance == this)
         {
-            instance= null;
+            instance = null;
         }
     }
 }

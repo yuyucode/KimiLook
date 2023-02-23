@@ -19,3 +19,14 @@ public class ItemDetails
     public float sellPercentage; // 所售卖的折扣百分比
 }
 
+// 如果使用struct，itemID和itemAmout 默认为0 
+
+// 如果用class，每次都要判断背包是否为空,以免会引起不必要的麻烦
+
+[System.Serializable]
+public struct InventoryItem
+{
+    public int itemID; // 默认0
+    public int itemAmout; // 显示背包的物品有多少个
+
+}

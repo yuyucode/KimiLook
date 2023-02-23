@@ -139,7 +139,7 @@ public class ItemDetails（）{}
 
 ## 文件操作
 
-1.  创建ScriptableObject文件
+1.  （SO文件）创建ScriptableObject文件：用于存储数据
 
 [CreateAssetMenu(fileName ="ItemDataList_SO", menuName = "Inventory/ItemDataList")]
 
@@ -149,3 +149,5 @@ public class ItemDataList_SO: ScriptableObject
 }
 
 右键Project 可以选中 Inventory，创建ItemDataList
+
+新建个Manager，把数据丢进去
