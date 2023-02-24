@@ -6,11 +6,11 @@
 
 1. 常用的摄像机管理 ：`Cinemachine`
 
-   ![image-20230224163001478](F:\Unity My Project\KimiLook\NoteIamges\Cinemachine)
+   ![image-20230224163001478](NoteIamges\Cinemachine)
 
 2. 动画任何通过简化的代码。`DOTween`是一个快速、高效、完全类型安全的面向对象动画引擎。
 
-   ![image-20230224163047680](F:\Unity My Project\KimiLook\NoteIamges\DOTween)
+   ![image-20230224163047680](NoteIamges\DOTween)
 
 3. `UI Toolkit`
 
@@ -24,14 +24,14 @@
      -  样式文件
      -  `UI Builder`编辑器文件
 
-  ![image-20230224163252755](F:\Unity My Project\KimiLook\NoteIamges\Toolkit_UI_Builder)
+  ![image-20230224163252755](NoteIamges\Toolkit_UI_Builder)
 
 ### UI Toolkit 知识
 
 1. 脚本查询`UI Toolkit`的元素
    在`uxml (Visual Tree Asset )`所有编辑的`UI`中，用到的`Library`元素，都可以通过以下方式进行查找，如下
 
-  ![image-20230224163638297](F:\Unity My Project\KimiLook\NoteIamges\search_ui)
+  ![image-20230224163638297](NoteIamges\search_ui)
 
   `root.Q< Standard下的元素名字 >("Hierarchy下的元素的name")`
 
@@ -110,14 +110,14 @@
       }
       ```
 
-![image-20230224163958999](F:\Unity My Project\KimiLook\NoteIamges\CM vcam1)
+![image-20230224163958999](NoteIamges\CM vcam1)
 
 ## 图片操作
 
 1. 图片统一预设处理
 
    - 当有N多个图片时，调整的参数配置都一样，那么就可以使用预设统一处理
-   - 先在`Project`目录中点击图片，在`Inspector`窗口的右上角有个预设按钮![image-20230224154202679](F:\Unity My Project\KimiLook\NoteIamges\preset)，创建新的`Preset`
+   - 先在`Project`目录中点击图片，在`Inspector`窗口的右上角有个预设按钮![image-20230224154202679](NoteIamges\preset)，创建新的`Preset`
    - 然后多选图片，选中`Preset`内的预设，进行处理
 
 2. `Player`与树跟（或者其它物品）的遮挡关系
@@ -126,9 +126,9 @@
 
   4. 找到`Sprite Renderer`组件的`Sprite`属性图片位置，选择图片点击`Sprite Editor`进入`Sprite Editor`窗口 
 
-     ![image-20230224164428288](F:\Unity My Project\KimiLook\NoteIamges\image-2-2)
+     ![image-20230224164428288](NoteIamges\image-2-2)
 
-  5. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](F:\Unity My Project\KimiLook\NoteIamges\image-2-4)
+  5. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](NoteIamges\image-2-4)
 
 
 ## 排序等级操作
@@ -139,7 +139,7 @@
 
    - 子物体也要选中对应的`Sorting Layer`
 
-     ![image-20230224164714442](F:\Unity My Project\KimiLook\NoteIamges\sorting-1-2)
+     ![image-20230224164714442](NoteIamges\sorting-1-2)
 
 
 2. 遮挡的功能效果，设置整个项目按照 Y 轴渲染
@@ -160,32 +160,32 @@
 
    1. 在 `Tile Palette ` 窗口中，在功能按钮旁边的区域，进行鼠标右键，点击  `open Tile palette Preferences`选项进行预设
 
-      ![image-20230224165327011](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-1-1)
+      ![image-20230224165327011](NoteIamges\Tilemap-1-1)
 
    2. 在`Tile Palette`窗口找到 `Default Tile Palatte Tools`，添加新的功能，然后`save`
 
-      ![image-20230224165901649](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-1-2)
+      ![image-20230224165901649](NoteIamges\Tilemap-1-2)
 
 2. `Scene` 窗口网格区域的对焦模式（显示当前访问的绘画区域）
 
    1. `Scene `窗口网格区域最上方右边有个网格（对焦模式），选择`Tilemap`对焦
    2. 当`Tile Palette` 窗口的`Active Tilemap`下拉栏选择了`Tilemap（Ground）`那么只会显示`Ground`区域的`Tile`
 
-   ![image-20230224165943865](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-2-2)
+   ![image-20230224165943865](NoteIamges\Tilemap-2-2)
 
 
-3. 绘制区域可以使用![image-20230224161959530](F:\Unity My Project\KimiLook\NoteIamges\TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](F:\Unity My Project\KimiLook\NoteIamges\TilePalette_box)进行快速删除
+3. 绘制区域可以使用![image-20230224161959530](NoteIamges\TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](NoteIamges\TilePalette_box)进行快速删除
 
 4. 笔刷可以绘画出随机`Tile`, `Tile Palette`窗口下方有`Default Brush`下拉框，可以进行下拉选择`Random Brush`进行配置
 
-   ![image-20230224170036896](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-4-1)
+   ![image-20230224170036896](NoteIamges\Tilemap-4-1)
 
 5. `Rule Tile` 可以进行规则绘制，减少绘制量。
 
    1. 在`Project`目录下鼠标右键 -> `Create` -> `2D` -> `Tiles`-> `Rule Tile`
    2. 根据不同图片进行规则绘制
 
-![image-20230224170200939](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-5-2)
+![image-20230224170200939](NoteIamges\Tilemap-5-2)
 
 
 
@@ -196,7 +196,7 @@
    3. 修改` Filter Mode` 为`Point `像素，` Compression` 为`None `最后进行`Pack preview`
    4. 注意：图片素材可能会干扰其他图片，可以把`Padding` 改大点
 
-   ![image-20230224170418595](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-6-4)
+   ![image-20230224170418595](NoteIamges\Tilemap-6-4)
 
 7. 瓦片地图碰撞（整体）
 
@@ -204,7 +204,7 @@
    2. 为了让`Tilemap`整体，添加`Composite Collider 2D`，（给`Rigidbody 2D`的属性`Type` 改为`Staitc` , 看游戏需要）
    3. 最后`Tilemap Collider 2D`组件，勾选`Used By Composite`
 
-   ![image-20230224171439947](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-7-3)
+   ![image-20230224171439947](NoteIamges\Tilemap-7-3)
 
 8. 对于不规则的碰撞`Tilemap`处理
 
@@ -214,7 +214,7 @@
 
   11. 关闭`Collision`，然后重新打开，就会完成绘制
 
-  ![image-20230224172133256](F:\Unity My Project\KimiLook\NoteIamges\Tilemap-8-3)
+  ![image-20230224172133256](NoteIamges\Tilemap-8-3)
 
 ## 组件操作
 
@@ -222,7 +222,7 @@
 
    - 当组件配置好之后，可以右上角3点号进行Copy，可以复制到其他对象
 
-   ![image-20230224173614771](F:\Unity My Project\KimiLook\NoteIamges\component-1-1)
+   ![image-20230224173614771](NoteIamges\component-1-1)
 
 
 ## 思路
