@@ -150,9 +150,9 @@
 
    3. `Transparency Sort Axis`配置项为 `x=0,y=1,z=0` 这样根据Y轴就有遮挡关系
 
-      > 注意事项：在`Sprite Renderer`组件下`Sorting Layer`必须是相同的，且`Player`的图片切割锚点需要在底部\
+      > 注意事项：在`Sprite Renderer`组件下`Sorting Layer`必须是相同的，且`Player`的图片切割锚点需要在底部
 
-      ![image-20230224164845521](C:\Users\14407\AppData\Roaming\Typora\typora-user-images\image-20230224164845521.png)
+      ![image-20230224164714442](/NoteIamges/sorting-2-3)
 
 ## Tilemap 操作
 
