@@ -4,11 +4,11 @@
 
 1. 常用的摄像机管理 ：`Cinemachine`
 
-   ![image-20230224163001478](/NoteIamges/1. 常用工具/Cinemachine)
+   ![image-20230224163001478](/NoteIamges/1.常用工具/Cinemachine)
 
 2. 动画任何通过简化的代码。`DOTween`是一个快速、高效、完全类型安全的面向对象动画引擎。
 
-   ![image-20230224163047680](/NoteIamges/1. 常用工具/DOTween)
+   ![image-20230224163047680](/NoteIamges/1.常用工具/DOTween)
 
 3. `UI Toolkit`
 
@@ -22,7 +22,7 @@
      -  样式文件
      -  `UI Builder`编辑器文件
 
-  ![image-20230224163252755](/NoteIamges/1. 常用工具/Toolkit_UI_Builder)
+  ![image-20230224163252755](/NoteIamges/1.常用工具/Toolkit_UI_Builder)
 
 
 
@@ -92,7 +92,7 @@
       }
       ```
 
-![image-20230224163958999](/NoteIamges/2. 摄像机操作/CM vcam1)
+![image-20230224163958999](/NoteIamges/2.摄像机操作/CM vcam1)
 
 ## 3、图片操作
 
@@ -100,7 +100,7 @@
 
 1. 当有N多个图片时，调整的参数配置都一样，那么就可以使用预设统一处理
 
-2. 先在`Project`目录中点击图片，在`Inspector`窗口的右上角有个预设按钮![image-20230224154202679](/NoteIamges/3. 图片操作/preset)，创建新的`Preset`
+2. 先在`Project`目录中点击图片，在`Inspector`窗口的右上角有个预设按钮![image-20230224154202679](/NoteIamges/3.图片操作/preset)，创建新的`Preset`
 
 3. 然后多选图片，选中`Preset`内的预设，进行处理
 
@@ -110,9 +110,9 @@
 
 ### 4. 找到`Sprite Renderer`组件的`Sprite`属性图片位置，选择图片点击`Sprite Editor`进入`Sprite Editor`窗口 
 
-![image-20230224164428288](/NoteIamges/3. 图片操作/image-2-2)
+![image-20230224164428288](/NoteIamges/3.图片操作/image-2-2)
 
-  1. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](/NoteIamges/3. 图片操作/image-2-4)
+  1. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](/NoteIamges/3.图片操作/image-2-4)
 
 
 ## 4、 排序等级操作
@@ -123,7 +123,7 @@
 
 - 子物体也要选中对应的`Sorting Layer`
 
-  ![image-20230224164714442](/NoteIamges/4. 排序等级操作/sorting-1-2)
+  ![image-20230224164714442](/NoteIamges/4.排序等级操作/sorting-1-2)
 
 ### 2. 遮挡的功能效果，设置整个项目按照 Y 轴渲染
 
@@ -135,7 +135,7 @@
 
 > 注意事项：在`Sprite Renderer`组件下`Sorting Layer`必须是相同的，且`Player`的图片切割锚点需要在底部
 
-![image-20230224164714442](/NoteIamges/4. 排序等级操作/sorting-2-3)
+![image-20230224164714442](/NoteIamges/4.排序等级操作/sorting-2-3)
 
 ## 5、Tilemap 操作
 
@@ -143,31 +143,31 @@
 
 1. 在 `Tile Palette ` 窗口中，在功能按钮旁边的区域，进行鼠标右键，点击  `open Tile palette Preferences`选项进行预设
 
-   ![image-20230224165327011](/NoteIamges/5. Tilemap操作/Tilemap-1-1)
+   ![image-20230224165327011](/NoteIamges/5.摄像机操作/Tilemap-1-1)
 
 2. 在`Tile Palette`窗口找到 `Default Tile Palatte Tools`，添加新的功能，然后`save`
 
-   ![image-20230224165901649](/NoteIamges/5. Tilemap操作/Tilemap-1-2)
+   ![image-20230224165901649](/NoteIamges/5.摄像机操作/Tilemap-1-2)
 
 ### 2. `Scene` 窗口网格区域的对焦模式（显示当前访问的绘画区域）
 
 1. `Scene `窗口网格区域最上方右边有个网格（对焦模式），选择`Tilemap`对焦
 2. 当`Tile Palette` 窗口的`Active Tilemap`下拉栏选择了`Tilemap（Ground）`那么只会显示`Ground`区域的`Tile`
 
-![image-20230224165943865](/NoteIamges/5. Tilemap操作/Tilemap-2-2)
+![image-20230224165943865](/NoteIamges/5.摄像机操作/Tilemap-2-2)
 
-### 3. 绘制区域可以使用![image-20230224161959530](/NoteIamges/5. Tilemap操作/TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](/NoteIamges/5. Tilemap操作/TilePalette_box)进行快速删除
+### 3. 绘制区域可以使用![image-20230224161959530](/NoteIamges/5.摄像机操作/TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](/NoteIamges/5.摄像机操作/TilePalette_box)进行快速删除
 
 ### 4. 笔刷可以绘画出随机`Tile`, `Tile Palette`窗口下方有`Default Brush`下拉框，可以进行下拉选择`Random Brush`进行配置
 
-![image-20230224170036896](/NoteIamges/5. Tilemap操作/Tilemap-4-1)
+![image-20230224170036896](/NoteIamges/5.摄像机操作/Tilemap-4-1)
 
 ### 5. `Rule Tile` 可以进行规则绘制，减少绘制量。
 
 1. 在`Project`目录下鼠标右键 -> `Create` -> `2D` -> `Tiles`-> `Rule Tile`
 2. 根据不同图片进行规则绘制
 
-![image-20230224170200939](/NoteIamges/5. Tilemap操作/Tilemap-5-2)
+![image-20230224170200939](/NoteIamges/5.摄像机操作/Tilemap-5-2)
 
 
 
@@ -178,7 +178,7 @@
 3. 修改` Filter Mode` 为`Point `像素，` Compression` 为`None `最后进行`Pack preview`
 4. 注意：图片素材可能会干扰其他图片，可以把`Padding` 改大点
 
-![image-20230224170418595](/NoteIamges/5. Tilemap操作/Tilemap-6-4)
+![image-20230224170418595](/NoteIamges/5.摄像机操作/Tilemap-6-4)
 
 ### 7. 瓦片地图碰撞（整体）
 
@@ -186,7 +186,7 @@
 2. 为了让`Tilemap`整体，添加`Composite Collider 2D`，（给`Rigidbody 2D`的属性`Type` 改为`Staitc` , 看游戏需要）
 3. 最后`Tilemap Collider 2D`组件，勾选`Used By Composite`
 
-![image-20230224171439947](/NoteIamges/5. Tilemap操作/Tilemap-7-3)
+![image-20230224171439947](/NoteIamges/5.摄像机操作/Tilemap-7-3)
 
 ### 8. 对于不规则的碰撞`Tilemap`处理
 
@@ -196,7 +196,7 @@
 
 3. 关闭`Collision`，然后重新打开，就会完成绘制
 
-  ![image-20230224172133256](/NoteIamges/5. Tilemap操作/Tilemap-8-3)
+  ![image-20230224172133256](/NoteIamges/5.摄像机操作/Tilemap-8-3)
 
 ## 6. 组件操作
 
@@ -204,13 +204,13 @@
 
 - 当组件配置好之后，可以右上角3点号进行Copy，可以复制到其他对象
 
-![image-20230224173614771](/NoteIamges/6. 组件操作/component-1-1)
+![image-20230224173614771](/NoteIamges/6.组件操作/component-1-1)
 
 ### 2. Rect Transform （center位置）
 
 > 点击矩阵center的多种操作
 
-![image-20230228235218282](/NoteIamges/6. 组件操作/7-component-1-1)
+![image-20230228235218282](/NoteIamges/6.组件操作/7-component-1-1)
 
 1. 默认情况下
 
@@ -218,19 +218,19 @@
 
    - 枢轴（黄色点）类似于原点
 
-![image-20230301002500061](/NoteIamges/6. 组件操作/7-component-1-2)
+![image-20230301002500061](/NoteIamges/6.组件操作/7-component-1-2)
 
 2. 按住`shift`键：设置枢轴位置
 
-![image-20230301003613870](/NoteIamges/6. 组件操作/7-component-1-3)
+![image-20230301003613870](/NoteIamges/6.组件操作/7-component-1-3)
 
 3. 按住`alt`键：设置物体位置
 
-![image-20230301005259245](/NoteIamges/6. 组件操作/2-3)
+![image-20230301005259245](/NoteIamges/6.组件操作/2-3)
 
 4. 同时按住`alt+shift`键：设置2个位置
 
-   ![image-20230301005450767](/NoteIamges/6. 组件操作/2-4)
+   ![image-20230301005450767](/NoteIamges/6.组件操作/2-4)
 
 ### 3. Horizontal Layout Group（水平布局组）
 
