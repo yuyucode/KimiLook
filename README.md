@@ -143,31 +143,31 @@
 
 1. 在 `Tile Palette ` 窗口中，在功能按钮旁边的区域，进行鼠标右键，点击  `open Tile palette Preferences`选项进行预设
 
-   ![image-20230224165327011](/NoteIamges/5.摄像机操作/Tilemap-1-1)
+   ![image-20230224165327011](/NoteIamges/5.Tilemap操作/Tilemap-1-1)
 
 2. 在`Tile Palette`窗口找到 `Default Tile Palatte Tools`，添加新的功能，然后`save`
 
-   ![image-20230224165901649](/NoteIamges/5.摄像机操作/Tilemap-1-2)
+   ![image-20230224165901649](/NoteIamges/5.Tilemap操作/Tilemap-1-2)
 
 ### 2. `Scene` 窗口网格区域的对焦模式（显示当前访问的绘画区域）
 
 1. `Scene `窗口网格区域最上方右边有个网格（对焦模式），选择`Tilemap`对焦
 2. 当`Tile Palette` 窗口的`Active Tilemap`下拉栏选择了`Tilemap（Ground）`那么只会显示`Ground`区域的`Tile`
 
-![image-20230224165943865](/NoteIamges/5.摄像机操作/Tilemap-2-2)
+![image-20230224165943865](/NoteIamges/5.Tilemap操作/Tilemap-2-2)
 
-### 3. 绘制区域可以使用![image-20230224161959530](/NoteIamges/5.摄像机操作/TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](/NoteIamges/5.摄像机操作/TilePalette_box)进行快速删除
+### 3. 绘制区域可以使用![image-20230224161959530](/NoteIamges/5.Tilemap操作/TilePalette_box)快速绘制，也可以使用`shift`+ ![image-20230224161959530](/NoteIamges/5.Tilemap操作/TilePalette_box)进行快速删除
 
 ### 4. 笔刷可以绘画出随机`Tile`, `Tile Palette`窗口下方有`Default Brush`下拉框，可以进行下拉选择`Random Brush`进行配置
 
-![image-20230224170036896](/NoteIamges/5.摄像机操作/Tilemap-4-1)
+![image-20230224170036896](/NoteIamges/5.Tilemap操作/Tilemap-4-1)
 
 ### 5. `Rule Tile` 可以进行规则绘制，减少绘制量。
 
 1. 在`Project`目录下鼠标右键 -> `Create` -> `2D` -> `Tiles`-> `Rule Tile`
 2. 根据不同图片进行规则绘制
 
-![image-20230224170200939](/NoteIamges/5.摄像机操作/Tilemap-5-2)
+![image-20230224170200939](/NoteIamges/5.Tilemap操作/Tilemap-5-2)
 
 
 
@@ -178,7 +178,7 @@
 3. 修改` Filter Mode` 为`Point `像素，` Compression` 为`None `最后进行`Pack preview`
 4. 注意：图片素材可能会干扰其他图片，可以把`Padding` 改大点
 
-![image-20230224170418595](/NoteIamges/5.摄像机操作/Tilemap-6-4)
+![image-20230224170418595](/NoteIamges/5.Tilemap操作/Tilemap-6-4)
 
 ### 7. 瓦片地图碰撞（整体）
 
@@ -186,7 +186,7 @@
 2. 为了让`Tilemap`整体，添加`Composite Collider 2D`，（给`Rigidbody 2D`的属性`Type` 改为`Staitc` , 看游戏需要）
 3. 最后`Tilemap Collider 2D`组件，勾选`Used By Composite`
 
-![image-20230224171439947](/NoteIamges/5.摄像机操作/Tilemap-7-3)
+![image-20230224171439947](/NoteIamges/5.Tilemap操作/Tilemap-7-3)
 
 ### 8. 对于不规则的碰撞`Tilemap`处理
 
@@ -196,7 +196,7 @@
 
 3. 关闭`Collision`，然后重新打开，就会完成绘制
 
-  ![image-20230224172133256](/NoteIamges/5.摄像机操作/Tilemap-8-3)
+  ![image-20230224172133256](/NoteIamges/5.Tilemap操作/Tilemap-8-3)
 
 ## 6. 组件操作
 
