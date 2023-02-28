@@ -237,6 +237,10 @@
 - 当父元素使用这个`Horizontal Layout Group`组件，子组件会受到`Layout`影响，可以生成对应的布局
 - 子组件使用`Layout Element`组件，勾选上`ignore Layout`让其不受影响
 
+### 4. Grid Layout Group（网格布局组）
+
+- 可用于背包的格子布局，设置对应的大小
+
 ​	
 
 
