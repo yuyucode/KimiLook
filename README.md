@@ -243,6 +243,36 @@
 
 ​	
 
+### 5. enable 属性（组件是否激活）
+
+​	这个属性是针对对象里面的组件是否勾选（激活）
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace MFarm.Inventory
+{
+    public class InventoryUI : MonoBehaviour
+    {
+        [Header("拖拽图片")]
+        public Image dragItem;
+        
+        // 不激活Image属性
+        private void NotJiHuo(){
+            dragItem.enable = false;
+        }
+    }
+
+}
+
+
+```
+
+
+
 
 ## 7. 文件操作
 
@@ -261,12 +291,39 @@ public class ItemDataList_SO: ScriptableObject
 
 
 
+## 8.  `UnityEngine.EventSystems` 事件接口
+
+> 建议去2019.3版本之前的手册观看
+>
+> 地址格式：`https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.接口名字.html`
+>
+> 例如，想观看`IPointerClickHandler `接口
+>
+> https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.IPointerClickHandler.html
+
+- IPointerEnterHandler - OnPointerEnter - 当指针进入对象时调用
+
+- IPointerExitHandler - OnPointerExit - 当指针退出对象时调用
+- IPointerDownHandler - OnPointerDown - 在对象上按下指针时调用
+- IPointerUpHandler - OnPointerUp - 松开指针时调用（在指针正在点击的游戏对象上调用）
+- IPointerClickHandler - OnPointerClick - 在同一对象上按下再松开指针时调用
+- IInitializePotentialDragHandler - OnInitializePotentialDrag - 在找到拖动目标时调用，可用于初始化值
+- IBeginDragHandler - OnBeginDrag - 即将开始拖动时在拖动对象上调用
+- IDragHandler - OnDrag - 发生拖动时在拖动对象上调用
+- IEndDragHandler - OnEndDrag - 拖动完成时在拖动对象上调用
+- IDropHandler - OnDrop - 在拖动目标对象上调用
+- IScrollHandler - OnScroll - 当鼠标滚轮滚动时调用
+- IUpdateSelectedHandler - OnUpdateSelected - 每次勾选时在选定对象上调用
+- ISelectHandler - OnSelect - 当对象成为选定对象时调用
+- IDeselectHandler - OnDeselect - 取消选择选定对象时调用
+- IMoveHandler - OnMove - 发生移动事件（上、下、左、右等）时调用
+- ISubmitHandler - OnSubmit - 按下 Submit 按钮时调用
+- ICancelHandler - OnCancel - 按下 Cancel 按钮时调用
 
 
+## 功能代码实现
 
-## 代码
-
-1. 让unity识别class对象，在Inspector显示的话，记得加上序列号
+### 1. 让unity识别class对象，在Inspector显示的话，记得加上序列号
 
   ```c#
 [System.Serializable]
@@ -274,6 +331,239 @@ public class ItemDetails（）{
     
 }
   ```
+
+### 2. Event 事件驱动
+
+> EventHandler.cs 定义一个委托
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public static class EventHandler
+{
+    // 定义一个委托：注册更新InventoryUI
+    public static event Action<InventoryLocation, List<InventoryItem>> OnUpdateInventoryUI;
+
+
+    // 用来被订阅的委托
+    public static void CallOnUpdateInventoryUI(InventoryLocation location, List<InventoryItem> list)
+    {
+        OnUpdateInventoryUI?.Invoke(location, list);
+    }
+}
+
+```
+
+> InventoryUI.cs 订阅一个委托
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MFarm.Inventory
+{
+    public class InventoryUI : MonoBehaviour
+    {
+        [SerializeField] private SlotUI[] playerSlots;
+
+        private void OnEnable()
+        {
+            // 订阅委托
+            EventHandler.OnUpdateInventoryUI += OnUpdateInventoryUI;
+        }
+
+        private void OnDisable()
+        {
+            // 取消委托
+            EventHandler.OnUpdateInventoryUI -= OnUpdateInventoryUI;   
+        }
+
+
+        private void Start()
+        {
+            // 给每一个格子赋值
+            for (int i = 0; i < playerSlots.Length; i++)
+            {
+                playerSlots[i].slotIndex= i;
+            }
+        }
+
+        private void OnUpdateInventoryUI(InventoryLocation lcation, List<InventoryItem> list)
+        {
+            switch(lcation)
+            {
+                case InventoryLocation.Player:
+                    for (int i = 0; i < playerSlots.Length; i++)
+                    {
+                        if (list[i].itemAmout > 0)
+                        {
+                            var item = InventoryManager.Instance.GetItemDetails(list[i].itemID);
+                            playerSlots[i].UpdateSlot(item, list[i].itemAmout);
+                        }
+                        else
+                        {
+                            playerSlots[i].UpdateEmptySlot();
+                        }
+                    }
+                    break;
+            }
+        }
+
+    }
+
+}
+
+```
+
+> InventoryManager.cs 调用委托
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MFarm.Inventory
+{
+    public class InventoryManager : Singleton<InventoryManager>
+    {
+        [Header("物品数据")]
+        public ItemDataList_SO itemDataList_SO;
+
+        [Header("背包数据")]
+        public InventoryBag_SO playerBag;
+
+        private void Start()
+        {
+            // 初始化背包
+            EventHandler.CallOnUpdateInventoryUI(InventoryLocation.Player, playerBag.itemList);
+        }
+
+        /// <summary>
+        /// 通过ID，返回对应的物品信息
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public ItemDetails GetItemDetails(int ID)
+        {
+            return itemDataList_SO.itemDetailsList.Find(i => i.itemID== ID);
+        }
+
+        /// <summary>
+        /// 添加物品到Player背包里
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="toDestory">是否需要销毁物品</param>
+        public void AddItem(Item item, bool toDestory)
+        {
+            // 背包是否有这个物品
+            var index = GetItemIndexInBag(item.itemID);
+
+            // 添加物品
+            // 还没处理： 背包不存在物品，且背包没有空位的时候
+            AddItemAtIndex(item.itemID, index, 1);
+
+            if(toDestory)
+            {
+                Destroy(item.gameObject);
+            }
+
+            // 更新UI, 调用委托
+            EventHandler.CallOnUpdateInventoryUI(InventoryLocation.Player, playerBag.itemList);
+        }
+
+        /// <summary>
+        /// 检查背包是否有空位
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckBagCapacity()
+        {
+            for(int i = 0; i < playerBag.itemList.Count; i++)
+            {
+                // 当itemID为0，背包有位置
+                if (playerBag.itemList[i].itemID == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private int GetItemIndexInBag(int ID)
+        {
+            for (int i = 0; i < playerBag.itemList.Count; i++)
+            {
+                // 当itemID为0，背包有位置
+                if (playerBag.itemList[i].itemID == ID)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// 在指定背包序号位置添加物品
+        /// </summary>
+        /// <param name="ID">物品的ID</param>
+        /// <param name="index">物品在背包的序号</param>
+        /// <param name="amount">添加的数量</param>
+        private void AddItemAtIndex(int ID, int index, int amount =1)
+        {
+            // index == -1 背包没有这个物品
+            if(index == -1)
+            {
+                // 1. 背包没有空位
+                if (!CheckBagCapacity())
+                {
+                    return;
+                }
+
+                // 2. 有空位
+                // 生成新的物品
+                var item = new InventoryItem {itemID = ID, itemAmout = amount};
+
+                for (int i = 0; i < playerBag.itemList.Count; i++)
+                {
+                    // 当itemID为0，背包有位置，位置为 i
+                    if (playerBag.itemList[i].itemID == 0)
+                    {
+                        playerBag.itemList[i] = item; // 添加物品到Bag
+                        break;
+                    }
+                }
+
+            }
+            else  // 背包有这个物品
+            {
+                int currentAmount = playerBag.itemList[index].itemAmout + amount;
+                var item = new InventoryItem { itemID= ID, itemAmout = currentAmount};
+                playerBag.itemList[index] = item;
+            }
+        }
+    }
+}
+
+
+```
+
+### 3. 拖拽图片功能
+
+1. 当拖动图片的时候，记得把`Image`组件下的`Raycast Target` 勾选取消掉
+
+![image-20230302025221152](/NoteIamges/功能代码实现/3-1.png)
+
+2. `Raycast Target`会阻止鼠标的射线判断，导致拖动图片下的物体获取不到（因为被图片挡住了）
+
+3. 当拖拽结束时，鼠标射线会获取当前的位置的物体，如下（可能会随机获取到4个不同的物体）
+
+![image-20230302024439310](/NoteIamges/功能代码实现/3-2.png)
+
+4. 为了指定的获取到`Slot_Bag`对象，可以把`Slot_Bag`对象下的子元素的`Raycast Target`勾选取消掉，这样就能获取到`Slot_Bag`对象
 
 ## 知识点
 

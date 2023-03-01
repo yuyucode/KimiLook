@@ -1,4 +1,6 @@
 /// <summary>
+/// 物品类型：
+/// 
 /// Seed 种子
 /// Commodity 商品|货物
 /// Furniture 家具
@@ -15,4 +17,21 @@ public enum IItemType
     Seed, Commodity, Furniture,
     HoeTool, ChopTool, BreakTool, ReapTool, WaterTool, CollectTool,
     ReapableScenery
+}
+
+/// <summary>
+/// 格子类型
+/// </summary>
+public enum SlotType
+{
+    Bag, Box, Shop
+}
+
+
+/// <summary>
+/// 物品分布
+/// </summary>
+public enum InventoryLocation
+{
+    Player, Box
 }
