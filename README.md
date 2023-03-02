@@ -234,14 +234,13 @@
 
 ### 3. Horizontal Layout Group（水平布局组）
 
+- 水平布局排列
 - 当父元素使用这个`Horizontal Layout Group`组件，子组件会受到`Layout`影响，可以生成对应的布局
 - 子组件使用`Layout Element`组件，勾选上`ignore Layout`让其不受影响
 
 ### 4. Grid Layout Group（网格布局组）
 
-- 可用于背包的格子布局，设置对应的大小
-
-​	
+​	可以设置网络布局。可用于背包的格子布局，设置对应的大小以及间距等等
 
 ### 5. enable 属性（组件是否激活）
 
@@ -271,7 +270,17 @@ namespace MFarm.Inventory
 
 ```
 
+### 6. Vertical Layout Group（垂直布局组）
 
+​	可以设置垂直的布局
+
+### 7. Content Size Fitter（内容尺寸装饰）
+
+​	可以根据实际内容扩展大小区域
+
+### 8. Layout Element（布局元素）
+
+​	布局元素： 可以设置对象的宽高，最大最小宽高，以及期望值等待
 
 
 ## 7. 文件操作
@@ -287,38 +296,39 @@ public class ItemDataList_SO: ScriptableObject
 }
 ```
 
-使用方式：在`Project` 目录先，右键 -> `Inventory` -> `ItemDataList`，生成`SO`文件
+使用方式：在`Project` 目录，`右键空白区域` -> `Inventory` -> `ItemDataList`，即可生成对应的`SO`文件
 
 
 
-## 8.  `UnityEngine.EventSystems` 事件接口
+## 8. 事件接口
 
-> 建议去2019.3版本之前的手册观看
->
-> 地址格式：`https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.接口名字.html`
->
-> 例如，想观看`IPointerClickHandler `接口
->
-> https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.IPointerClickHandler.html
+### 1.  `UnityEngine.EventSystems` 
 
-- IPointerEnterHandler - OnPointerEnter - 当指针进入对象时调用
+- > 建议去2019.3版本之前的手册观看
+  >
+  > 地址格式：`https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.接口名字.html`
+  >
+  > 例如，想观看`IPointerClickHandler `接口
+  >
+  > https://docs.unity.cn/cn/2019.3/ScriptReference/EventSystems.IPointerClickHandler.html
 
-- IPointerExitHandler - OnPointerExit - 当指针退出对象时调用
-- IPointerDownHandler - OnPointerDown - 在对象上按下指针时调用
-- IPointerUpHandler - OnPointerUp - 松开指针时调用（在指针正在点击的游戏对象上调用）
-- IPointerClickHandler - OnPointerClick - 在同一对象上按下再松开指针时调用
-- IInitializePotentialDragHandler - OnInitializePotentialDrag - 在找到拖动目标时调用，可用于初始化值
-- IBeginDragHandler - OnBeginDrag - 即将开始拖动时在拖动对象上调用
-- IDragHandler - OnDrag - 发生拖动时在拖动对象上调用
-- IEndDragHandler - OnEndDrag - 拖动完成时在拖动对象上调用
-- IDropHandler - OnDrop - 在拖动目标对象上调用
-- IScrollHandler - OnScroll - 当鼠标滚轮滚动时调用
-- IUpdateSelectedHandler - OnUpdateSelected - 每次勾选时在选定对象上调用
-- ISelectHandler - OnSelect - 当对象成为选定对象时调用
-- IDeselectHandler - OnDeselect - 取消选择选定对象时调用
-- IMoveHandler - OnMove - 发生移动事件（上、下、左、右等）时调用
-- ISubmitHandler - OnSubmit - 按下 Submit 按钮时调用
-- ICancelHandler - OnCancel - 按下 Cancel 按钮时调用
+  - IPointerEnterHandler - OnPointerEnter - 当指针进入对象时调用
+  - IPointerExitHandler - OnPointerExit - 当指针退出对象时调用
+  - IPointerDownHandler - OnPointerDown - 在对象上按下指针时调用
+  - IPointerUpHandler - OnPointerUp - 松开指针时调用（在指针正在点击的游戏对象上调用）
+  - IPointerClickHandler - OnPointerClick - 在同一对象上按下再松开指针时调用
+  - IInitializePotentialDragHandler - OnInitializePotentialDrag - 在找到拖动目标时调用，可用于初始化值
+  - IBeginDragHandler - OnBeginDrag - 即将开始拖动时在拖动对象上调用
+  - IDragHandler - OnDrag - 发生拖动时在拖动对象上调用
+  - IEndDragHandler - OnEndDrag - 拖动完成时在拖动对象上调用
+  - IDropHandler - OnDrop - 在拖动目标对象上调用
+  - IScrollHandler - OnScroll - 当鼠标滚轮滚动时调用
+  - IUpdateSelectedHandler - OnUpdateSelected - 每次勾选时在选定对象上调用
+  - ISelectHandler - OnSelect - 当对象成为选定对象时调用
+  - IDeselectHandler - OnDeselect - 取消选择选定对象时调用
+  - IMoveHandler - OnMove - 发生移动事件（上、下、左、右等）时调用
+  - ISubmitHandler - OnSubmit - 按下 Submit 按钮时调用
+  - ICancelHandler - OnCancel - 按下 Cancel 按钮时调用
 
 
 ## 功能代码实现
@@ -565,7 +575,74 @@ namespace MFarm.Inventory
 
 4. 为了指定的获取到`Slot_Bag`对象，可以把`Slot_Bag`对象下的子元素的`Raycast Target`勾选取消掉，这样就能获取到`Slot_Bag`对象
 
-## 知识点
+
+
+### 4. 序列化属性（SerializeField）
+
+​	`[SerializeField]` 可以让属性在unity上显示，和`public`不同的是，可以是一个`private`属性，`public`属性会被访问到
+
+```C#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+public class ItemToolTip : MonoBehaviour
+{
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI typeText;
+
+    [SerializeField] private TextMeshProUGUI descriptionText;
+
+    [SerializeField] private Text valueText;
+    [SerializeField] private GameObject bottomPart;
+}
+
+```
+
+### 5. RequireComponent（要求有一个属性在这个组件中）
+
+​	`RequireComponent`属性自动添加所需的组件作为依赖项。
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace MFarm.Inventory
+{
+    // 要求有一个SlotUI属性在这个组件中
+    [RequireComponent(typeof(SlotUI))]
+    public class ShowItemToolTip : MonoBehaviour
+    {
+        private SlotUI slotUI;
+    }
+
+}
+```
+
+### 6. UI渲染有延迟处理
+
+​	在布局中，Text可能会有单列、甚至多列，会导致布局不能及时更改，这时候需要强制刷新
+
+```c#
+public class Text(){
+    private void UpdateUI(){
+        // 计算 .......
+        // UI 计算渲染
+        // 计算结束
+        // 强制立即重新构建受计算影响的布局元素和子布局元素。（记得为对应的对象）
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+    }
+}
+```
+
+
+
+
+
+## Unity 知识
 
 ### 1. 学习手册
 
@@ -573,22 +650,72 @@ namespace MFarm.Inventory
 
 ### 2. UI Toolkit 知识
 
-​	脚本查询`UI Toolkit`的元素
-​	在`uxml (Visual Tree Asset )`所有编辑的`UI`中，用到的`Library`元素，都可以通过以下方式进行查找，如下
+- 创建`UI Toolkit`编辑器窗口： 
 
-  ![image-20230224163638297](/NoteIamges/知识点/search_ui)
+  `Project`目录 -> `鼠标右键 `-> `Create` -> `UI Toolkit` -> `Editor Window`->`输入名字 Confirm` -> `生成三个文件`
 
-  `root.Q< Standard下的元素名字 >("Hierarchy下的元素的name")`
+  	- `c#` 脚本，控制渲染
+  	- `UXML`  页面展示 ：双击文件，可以打开 `UI Builder`进行页面结构编辑
+  	- `USS` 样式
+
+- `C#`脚本中查询`UI Toolkit`的元素
+
+  在`uxml (Visual Tree Asset )`所有编辑的`UI`中，用到的`Library`元素，都可以通过以下方式进行查找，如下
+
+​		  ![image-20230224163638297](/NoteIamges/知识点/search_ui)
+
+​		  `root.Q< Standard下的元素名字 >("Hierarchy下的元素的name")`
 
   ```
 #Container
    #ItemList（VisualElement）
   ```
 
-  最后的查询语法`root.Q<VisualElement>("ItemList")` : 根元素查询名为 `ItemList `的 `VisualElement`
+​		  最后的查询语法`root.Q<VisualElement>("ItemList")` : 根元素查询名为 `ItemList `的 `VisualElement`
 
   
+
+## C# 知识
+
+### 1. c# switch 语法糖
+
+```c#
+public class Text(){
+    private string GetItemType(IItemType itemType)
+    {
+        return itemType switch
+        {
+            IItemType.Seed => "种子",
+            IItemType.Commodity => "商品",
+            IItemType.Furniture => "家具",
+            IItemType.BreakTool => "工具",
+            IItemType.ChopTool => "工具",
+            IItemType.CollectTool => "工具",
+            IItemType.HoeTool => "工具",
+            IItemType.ReapTool => "工具",
+            IItemType.WaterTool => "工具",
+            _ => "无"
+        };
+    }
+}
+```
+
+
+
+
 
 ## 学习思路
 
 1. `Player` 挂载`TriggerEnter`， 然后触发，调用其他对象所挂载的函数
+
+## Unity 目录
+
+```markdown
+├└┴┘┤┼┬┐┌│─
+
+Assets
+	├─ Editor 不会被打包的目录，可以放置一些在开发过程使用的东西，例如UI-Tookit等
+	├─ Prefabs 用于放置预制件
+	├─ Scripts 用于放置脚本
+	├─ Scenes 用于放置场景
+```

@@ -110,8 +110,39 @@ namespace MFarm.Inventory
         {
             inventoryUI.dragItem.enabled=false; // 关闭
 
+            GameObject _gameObject = eventData.pointerCurrentRaycast.gameObject;
+
             // 获取鼠标最后的位置 
-            Debug.Log(eventData.pointerCurrentRaycast.gameObject);
+            // Debug.Log(eventData.pointerCurrentRaycast.gameObject);
+            if (_gameObject != null)
+            {
+                if (_gameObject.GetComponent<SlotUI>() == null)
+                {
+                    return;
+                }
+
+                var targetSlot = _gameObject.GetComponent<SlotUI>();
+                int targetIndex = targetSlot.slotIndex;
+
+                // 在Player自身背包范围内交换
+                if(slotType == SlotType.Bag && targetSlot.slotType == SlotType.Bag)
+                {
+                    InventoryManager.Instance.SwapItem(slotIndex, targetIndex);
+                }
+
+                // 清空所有高亮
+                inventoryUI.UpdateSlotHighlight(-1);
+            }
+            //else // 测试扔在地上
+            //{
+            //    if (!itemDetails.canDropped) return;
+
+            //    // 当鼠标松开的那一刻，拿到世界地图坐标（通过摄像机的方法）
+            //    var pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
+
+            //    EventHandler.CallOnInstantiateInScene(itemDetails.itemID, pos);
+
+            //}
         }
     }
 

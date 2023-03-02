@@ -7,6 +7,9 @@ namespace MFarm.Inventory
 {
     public class InventoryUI : MonoBehaviour
     {
+        [Header("物品提示")]
+        public ItemToolTip itemToolTip;
+
         [Header("拖拽图片")]
         public Image dragItem;
 

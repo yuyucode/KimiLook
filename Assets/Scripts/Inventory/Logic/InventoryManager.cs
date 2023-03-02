@@ -121,6 +121,32 @@ namespace MFarm.Inventory
                 playerBag.itemList[index] = item;
             }
         }
+
+        /// <summary>
+        /// Player背包范围内交换物品
+        /// </summary>
+        /// <param name="fromIndex">起始序号</param>
+        /// <param name="targetIndex">目标序号</param>
+        public void SwapItem(int fromIndex, int targetIndex)
+        {
+
+            InventoryItem currentItem = playerBag.itemList[fromIndex]; // 当前物品
+            InventoryItem targetItem = playerBag.itemList[targetIndex]; // 目标物品
+
+            if(targetItem.itemID != 0)
+            {
+                // 说明目标物品不为空
+                playerBag.itemList[fromIndex] = targetItem;
+                playerBag.itemList[targetIndex] = currentItem;
+            }else
+            {
+                playerBag.itemList[targetIndex] = currentItem;
+                playerBag.itemList[fromIndex] = new InventoryItem();
+            }
+
+            //  更新背包
+            EventHandler.CallOnUpdateInventoryUI(InventoryLocation.Player, playerBag.itemList);
+        }
     }
 }
 

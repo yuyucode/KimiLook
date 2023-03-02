@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4527382015061960319}
   - component: {fileID: 4527382015061960318}
   - component: {fileID: 4928443897955870506}
+  - component: {fileID: 588469683376532521}
   m_Layer: 5
   m_Name: Slot_Bag
   m_TagString: Untagged
@@ -158,6 +159,18 @@ MonoBehaviour:
     sellPercentage: 0
   itemAmount: 0
   slotIndex: 0
+--- !u!114 &588469683376532521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527382015061960288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5149179eb2744cc45b493bfbcb46ba88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4527382015335744588
 GameObject:
   m_ObjectHideFlags: 0
