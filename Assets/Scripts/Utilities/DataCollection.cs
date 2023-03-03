@@ -30,3 +30,12 @@ public struct InventoryItem
     public int itemAmout; // 显示背包的物品有多少个
 
 }
+
+[System.Serializable]
+public class AnimatorType
+{
+    public PartType partType;
+    public PartName partName;
+
+    public AnimatorOverrideController overrideController;
+}

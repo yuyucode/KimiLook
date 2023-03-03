@@ -70,6 +70,13 @@ namespace MFarm.Inventory
             isSelected = !isSelected; // 状态切换
 
             inventoryUI.UpdateSlotHighlight(slotIndex);
+
+            // 判断在背包
+            if(slotType == SlotType.Bag)
+            {
+                // 通知物品被选中的状态和信息
+                EventHandler.CallOnItemSelectedEvent(itemDetails, isSelected);
+            }
         }
 
         /// <summary>

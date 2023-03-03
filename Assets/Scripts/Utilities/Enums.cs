@@ -35,3 +35,20 @@ public enum InventoryLocation
 {
     Player, Box
 }
+
+
+/// <summary>
+/// 这是什么样的物体，是什么类型
+/// </summary>
+public enum PartType
+{
+    None, Carry, Hoe,Break,
+}
+
+/// <summary>
+/// 身体的各个部分
+/// </summary>
+public enum PartName
+{
+    Body, Hair, Arm, Tool
+}

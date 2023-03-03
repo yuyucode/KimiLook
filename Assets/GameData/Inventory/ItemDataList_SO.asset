@@ -142,7 +142,7 @@ MonoBehaviour:
     itemUseRadius: 1
     canPickup: 0
     canDropped: 0
-    canCarried: 0
+    canCarried: 1
     itemPrice: 0
     sellPercentage: 0
   - itemID: 1011
@@ -154,7 +154,7 @@ MonoBehaviour:
     itemUseRadius: 1
     canPickup: 0
     canDropped: 0
-    canCarried: 0
+    canCarried: 1
     itemPrice: 0
     sellPercentage: 0
   - itemID: 1012
@@ -166,6 +166,6 @@ MonoBehaviour:
     itemUseRadius: 0
     canPickup: 0
     canDropped: 0
-    canCarried: 0
+    canCarried: 1
     itemPrice: 0
     sellPercentage: 0

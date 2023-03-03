@@ -23,4 +23,12 @@ public static class EventHandler
         OnInstantiateItenScene?.Invoke(ID, pos);
     }
 
+
+    public static event Action<ItemDetails, bool> OnItemSelectedEvent;
+
+    public static void CallOnItemSelectedEvent(ItemDetails itemDetails, bool isSelected)
+    {
+        OnItemSelectedEvent?.Invoke(itemDetails, isSelected);
+    }
+
 }
