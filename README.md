@@ -32,8 +32,6 @@
 
 在Hierarchy目录下右键使用`Ciemachine`创建对象（名字默认可能是`CM Vcam1`）
 
-### 2. 根据像素本身来处理相机的位置（配合`Cinemachine`）
-
 - `Main Camera` 对象：（主摄像机）
 
   > 在Main Camera 中添加组件 Pixel Perfect Camera，修改属性配置。
@@ -45,52 +43,52 @@
 
   
 
-1. 设置摄像机缓冲
+### 2. 设置摄像机的缓冲（需要`Cinemachine`配合）
 
-   在`CM vcam1 `对象中， 在`CinemachineVirtualCamera`组件的`Body`属性设置参数，看个人喜好
+​	在`CM vcam1 `对象中， 在`CinemachineVirtualCamera`组件的`Body`属性设置参数，看个人喜好
 
-2. 设置摄像机边界
+### 3. 设置摄像机边界（需要`Cinemachine`配合）
 
-   1. 在`CM vcam1`对象中， 在`CinemachineVirtualCamera`组件的`Extensions` 属性添加新的扩展组件`Cinemachine Confiner`用来处理边界。
+1. 在`CM vcam1`对象中， 在`CinemachineVirtualCamera`组件的`Extensions` 属性添加新的扩展组件`Cinemachine Confiner`用来处理边界。
 
-   2. 创建一个`Bounds`对象，添加`Collider 2D`组件，记得勾选`is Trigger`，防止顶出其他物体，然后再修改边界位置锚点
-      把`Bounds`对象添加到` Cinemachine Confiner`组件的`Bounding Shape 2D`属性
+2. 创建一个`Bounds`对象，添加`Collider 2D`组件，记得勾选`is Trigger`，防止顶出其他物体，然后再修改边界位置锚点
+   把`Bounds`对象添加到` Cinemachine Confiner`组件的`Bounding Shape 2D`属性
 
-   3. > 自动加载处理边界：为了防止切换场景，导致Bounds对象消失，可以编写C#脚本
+3. > 自动加载处理边界：为了防止切换场景，导致Bounds对象消失，可以编写C#脚本
 
-      ```c#
-      using Cinemachine;
-      using System.Collections;
-      using System.Collections.Generic;
-      using UnityEngine;
-      
-      /// <summary>
-      /// 切换场景
-      /// </summary>
-      public class SwitchBounds : MonoBehaviour
-      {
-          // TODO: 切换场景后更改调用
-          private void Start()
-          {
-              SwitchConfinerShape();
-          }
-      
-          private void SwitchConfinerShape()
-          {
-              // 获取 Collider2D
-              PolygonCollider2D confinerShape = GameObject.FindGameObjectWithTag("BoundsConfiner").GetComponent<PolygonCollider2D>();
-      
-              // 获取 CinemachineConfiner 组件
-              CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
-      
-              // 设置 CinemachineConfiner 的 BoundingShape2D 属性的值
-              confiner.m_BoundingShape2D = confinerShape;
-      
-              // 如果边界形状的点在运行时发生变化，则调用此函数，防止被缓存
-              confiner.InvalidatePathCache();		
-          }
-      }
-      ```
+   ```c#
+   using Cinemachine;
+   using System.Collections;
+   using System.Collections.Generic;
+   using UnityEngine;
+   
+   /// <summary>
+   /// 切换场景
+   /// </summary>
+   public class SwitchBounds : MonoBehaviour
+   {
+       // TODO: 切换场景后更改调用
+       private void Start()
+       {
+           SwitchConfinerShape();
+       }
+   
+       private void SwitchConfinerShape()
+       {
+           // 获取 Collider2D
+           PolygonCollider2D confinerShape = GameObject.FindGameObjectWithTag("BoundsConfiner").GetComponent<PolygonCollider2D>();
+   
+           // 获取 CinemachineConfiner 组件
+           CinemachineConfiner confiner = GetComponent<CinemachineConfiner>();
+   
+           // 设置 CinemachineConfiner 的 BoundingShape2D 属性的值
+           confiner.m_BoundingShape2D = confinerShape;
+   
+           // 如果边界形状的点在运行时发生变化，则调用此函数，防止被缓存
+           confiner.InvalidatePathCache();		
+       }
+   }
+   ```
 
 ![image-20230224163958999](/NoteIamges/2.摄像机操作/CM_vcam1)
 
@@ -115,7 +113,7 @@
   1. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](/NoteIamges/3.图片操作/image-2-4)
 
 
-## 4、 排序等级操作
+## 4、排序等级操作
 
 ### 1. `sorting group`组件
 
@@ -198,7 +196,7 @@
 
   ![image-20230224172133256](/NoteIamges/5.Tilemap操作/Tilemap-8-3)
 
-## 6. 组件操作
+## 6、组件操作
 
 ### 1. 组件复制
 
@@ -283,7 +281,7 @@ namespace MFarm.Inventory
 ​	布局元素： 可以设置对象的宽高，最大最小宽高，以及期望值等待
 
 
-## 7. 文件操作
+## 7、文件操作
 
 ### 1. （SO文件）创建`ScriptableObject`的`C#`文件，用于存储数据
 
@@ -300,7 +298,7 @@ public class ItemDataList_SO: ScriptableObject
 
 
 
-## 8. 事件接口
+## 8、事件接口
 
 ### 1.  `UnityEngine.EventSystems` 
 
@@ -329,6 +327,34 @@ public class ItemDataList_SO: ScriptableObject
   - IMoveHandler - OnMove - 发生移动事件（上、下、左、右等）时调用
   - ISubmitHandler - OnSubmit - 按下 Submit 按钮时调用
   - ICancelHandler - OnCancel - 按下 Cancel 按钮时调用
+
+
+
+## 8、Animator 动画制作器
+
+### 1. 创建一个人物基础通用的动画控制器
+
+1. 创建一个`BaseController`的`Animator`,打开`Animator`窗口
+2. 鼠标在空白处右键新建一个`Blend Tree`，名为`idle`，这个状态是战力时候的状态
+3. ![image-20230304010147135](/NoteIamges/8.Animator动画制作器/1-1.png)
+4. 双击进入`idle`，进行编辑
+5. 在左上方`Parameters`创建三个参数，后面需要
+6. 选中`Blend Tree`，右边`Inspector`会生成对应的窗口，进行后续处理
+7. ![image-20230304010740104](/NoteIamges/8.Animator动画制作器/1-2.png)
+8. 左上方，点击`Base Layer`返回主页面
+9. 鼠标右键创建一个`Walk Run`状态，用于处理行走、跑步。
+10. ![image-20230304011156982](/NoteIamges/8.Animator动画制作器/1-3.png)
+11. 连线根据`isMoving`参数进行连线
+12. ![image-20230304011429834](/NoteIamges/8.Animator动画制作器/1-4.png)
+13. 双击`Walk Run`进入编辑树，详细参数自行设计
+14. ![image-20230304011556585](/NoteIamges/8.Animator动画制作器/1-5.png)
+15. 回到`Project`目录窗口
+16. 右键空白处 ->  `Create` -> `Animator Override Controll` -> 命名为`Body`
+17. 点击`Body`，把`BaseController `拖拽进去，这样就会通用所有状态
+18. ![image-20230304011909214](/NoteIamges/8.Animator动画制作器/1-6.png)
+19. 制作`Animations`，把所有对应的`Animation`拖拽进去
+20. ![image-20230304015035961](/NoteIamges/8.Animator动画制作器/1-7.png)
+21. `Body`对象使用该`Animator`，后面的`Hair、Arm`也是类似的同样操作
 
 
 ## 功能代码实现
