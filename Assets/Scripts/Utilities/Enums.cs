@@ -52,3 +52,11 @@ public enum PartName
 {
     Body, Hair, Arm, Tool
 }
+
+/// <summary>
+/// 季节
+/// </summary>
+public enum Season
+{
+    春天,夏天,秋天,冬天
+}

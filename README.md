@@ -112,6 +112,16 @@
 
   1. 右下方的`Sprite`窗口，`Pivot`属性下拉选中`Custom`， 修改`Custom Pivot `的 `X || Y`，让其有遮挡的锚点位置![image-20230224164301095](/NoteIamges/3.图片操作/image-2-4)
 
+### 5. 当`png`图片为`Button`时，设置马赛克区域不能被点击
+
+​	![image-20230305042043284](NoteIamges/3.图片操作/5-2)
+
+​	
+
+>  选中图片，把`Advanced`属性的`Read/Write`勾选上
+
+![image-20230305041739244](/NoteIamges/3.图片操作/5-1.png)
+
 
 ## 4、排序等级操作
 
@@ -279,6 +289,8 @@ namespace MFarm.Inventory
 ### 8. Layout Element（布局元素）
 
 ​	布局元素： 可以设置对象的宽高，最大最小宽高，以及期望值等待
+
+### 9. Mask （遮罩）
 
 
 ## 7、文件操作
