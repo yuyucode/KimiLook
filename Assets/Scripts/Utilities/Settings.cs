@@ -8,7 +8,7 @@ public class Settings
     public const float targetAlpha = 0.65f;
 
     // 时间相关
-    public const float secondThreshold = 0.1f; // 数值越少，时间越快
+    public const float secondThreshold = 0.05f; // 数值越少，时间越快
     public const int secondHold = 59; // 一分钟多少秒
     public const int minuteHold = 59;// 一小时多少分钟
     public const int hourHold = 23;// 一天多少小时

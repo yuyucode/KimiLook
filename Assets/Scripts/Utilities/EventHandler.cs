@@ -31,4 +31,33 @@ public static class EventHandler
         OnItemSelectedEvent?.Invoke(itemDetails, isSelected);
     }
 
+
+    // 分钟委托调用的更新
+    public static event Action<int, int> OnGameMinuteEvent;
+
+    /// <summary>
+    /// 分钟委托调用的更新
+    /// </summary>
+    /// <param name="minute">分钟</param>
+    /// <param name="hour">小时</param>
+    public static void CallOnGameMinuteEvent(int minute, int hour)
+    {
+        OnGameMinuteEvent?.Invoke(minute, hour);
+    }
+
+    
+    public static event Action<int, int, int, int, Season> OnGameDateEvent;
+
+    /// <summary>
+    /// 委托大体时间调用的更新
+    /// </summary>
+    /// <param name="hour">小时</param>
+    /// <param name="day">天</param>
+    /// <param name="month">月</param>
+    /// <param name="year">年</param>
+    /// <param name="season">季节</param>
+    public static void CallOnGameDateEvent(int hour, int day, int month, int year, Season season)
+    {
+        OnGameDateEvent?.Invoke(hour, day, month, year, season);
+    }
 }

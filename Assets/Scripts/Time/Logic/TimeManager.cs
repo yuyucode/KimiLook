@@ -16,7 +16,15 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
+        // 初始化
         NewGameTime();
+    }
+
+    // Start周期会在Enable后面执行，防止没触发（更新日期）
+    private void Start()
+    {
+        EventHandler.CallOnGameDateEvent(gameHour, gameDay, gameMonth, gameYear, gameSeason);
+        EventHandler.CallOnGameMinuteEvent(gameMinute, gameHour);
     }
 
     private void Update()
@@ -28,6 +36,14 @@ public class TimeManager : MonoBehaviour
             if(tikTime >= Settings.secondThreshold)
             {
                 tikTime -= Settings.secondThreshold;
+                UpdateGameTime();
+            }
+        }
+
+        // 空格 + H ,快速跳过一分钟
+        if(Input.GetKey(KeyCode.T)) { 
+            for(int i = 0; i < 60; i++)
+            {
                 UpdateGameTime();
             }
         }
@@ -114,8 +130,13 @@ public class TimeManager : MonoBehaviour
                         }
                     }
                 }
+
+               
             }
+            EventHandler.CallOnGameDateEvent(gameHour, gameDay, gameMonth, gameYear, gameSeason);
         }
-       
+
+
+        EventHandler.CallOnGameMinuteEvent(gameMinute, gameHour);
     }
 }
